@@ -1,0 +1,24 @@
+{
+  "Login": {
+    "UserName": "نام کاربری",
+    "Password": "گذرواژه",
+    "BrandTitle": "فانوس",
+    "BrandDescription": "تحلیل و طراحی نرم‌افزارهای فردوس",
+    "LoginButton": "ورود",
+    "Fa": "فا",
+    "En": "En"
+  },
+  "TopMenu": {
+    "BrandTitle": "فانوس",
+    "Farsi": "فارسی",
+    "English": "English",
+    "Profile": "پروفایل",
+    "Logout": "خروج"
+  },
+  "SideNav": {
+    "Dashboard": "داشبورد",
+    "Messages": "پیام ها",
+    "Tasks": "کارها",
+    "Administration": "مدیریت نرم افزار"
+  }
+}

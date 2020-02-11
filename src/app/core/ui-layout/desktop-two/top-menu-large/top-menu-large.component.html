@@ -1,0 +1,14 @@
+<mat-toolbar [class.mat-elevation-z2]="true">
+  <div class="brand-box"
+       [ngStyle]="{'width': isLargeWeb && ! isSideBarMinimized ? '240px' : '64px'}">
+    <div class="brand-img-box">
+      <div class="brand-img"></div>
+    </div>
+    <div class="brand-title-box" *ngIf="isLargeWeb && ! isSideBarMinimized">
+      <span>{{ 'TopMenu.BrandTitle' | translate }}</span>
+    </div>
+  </div>
+  <button mat-icon-button *ngIf="isLargeWeb" (click)="toggleSideBar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>

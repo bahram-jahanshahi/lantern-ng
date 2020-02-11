@@ -1,0 +1,37 @@
+mat-toolbar {
+  background-color: white;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+  padding: 0;
+}
+
+.brand-box {
+  display: table;
+  width: 240px;
+  height: 100%;
+  background-color: #222c3c;
+}
+
+.brand-title-box {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  padding: 4px;
+  color: white;
+}
+
+.brand-img-box {
+  display: table-cell;
+  vertical-align: middle;
+  width: 48px;
+  height: 100%;
+  padding: 4px;
+}
+
+.brand-img {
+  background-image: url('/assets/icons/icons8-lantern-96.png');
+  background-size: cover;
+  width: 48px;
+  height: 48px;
+}

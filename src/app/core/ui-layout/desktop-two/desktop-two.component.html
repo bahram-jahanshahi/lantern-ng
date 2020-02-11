@@ -1,0 +1,52 @@
+<!-- side nav -->
+<mat-drawer-container class="example-container">
+  <mat-drawer #sidenav mode="{{sideNavMode}}" opened [(opened)]="isSideBarOpened"
+              [ngStyle]="{'width': (isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb ? '240px' : '64px'}">
+    <div class="brand-img-box">
+      <div class="brand-img"></div>
+    </div>
+    <mat-action-list>
+      <button mat-list-item class="list-item">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
+          {{ 'SideNav.Dashboard' | translate }}
+        </span>
+      </button>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('messages')">
+        <mat-icon matListIcon>mail_outline</mat-icon>
+        <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
+          {{ 'SideNav.Messages' | translate }}
+        </span>
+      </button>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('tasks')">
+        <mat-icon matListIcon>playlist_add_check</mat-icon>
+        <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
+          {{ 'SideNav.Tasks' | translate }}
+        </span>
+      </button>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('administration')">
+        <mat-icon matListIcon>settings</mat-icon>
+        <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
+          {{ 'SideNav.Administration' | translate }}
+        </span>
+      </button>
+    </mat-action-list>
+  </mat-drawer>
+  <!-- Drawer Content -->
+  <mat-drawer-content
+    [ngStyle]="{
+      'margin-right' : isRtl && ! isSideBarMinimized ? '240px' : '64px',
+      'margin-left' : ! isRtl && ! isSideBarMinimized ? '240px' : '64px'
+    }"
+  >
+    <mat-toolbar [class.mat-elevation-z2]="true" color="primary" *ngIf="! isMediumWeb">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      {{ 'TopMenu.BrandTitle' | translate }}
+    </mat-toolbar>
+
+
+  </mat-drawer-content>
+</mat-drawer-container>
+<app-top-menu-large (clicked)="toggleSideBar($event)" *ngIf="isMediumWeb"></app-top-menu-large>

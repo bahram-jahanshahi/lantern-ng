@@ -1,0 +1,87 @@
+<!-- Toolbar (Top Menu) -->
+<mat-toolbar color="primary">
+  <!-- If it is a medium web -->
+  <div class="brand-box" *ngIf="isMediumWeb">
+    <div class="brand-img-box">
+      <div class="brand-img"></div>
+    </div>
+    <div class="brand-title-box">
+      <span>{{ 'TopMenu.BrandTitle' | translate }}</span>
+    </div>
+  </div>
+
+  <!-- If it is not a medium web -->
+  <div class="brand-box" *ngIf="! isMediumWeb">
+    <div class="brand-img-box">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div class="brand-title-box">
+      <span>{{ 'TopMenu.BrandTitle' | translate }}</span>
+    </div>
+  </div>
+  <span class="example-spacer"></span>
+  <!-- User -->
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>account_box</mat-icon>
+      <span>{{ 'TopMenu.Profile' | translate }}</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>power_settings_new</mat-icon>
+      <span>{{ 'TopMenu.Logout' | translate }}</span>
+    </button>
+  </mat-menu>
+  <!-- Settings -->
+  <button mat-icon-button [matMenuTriggerFor]="settingMenu">
+    <mat-icon>language</mat-icon>
+  </button>
+  <mat-menu #settingMenu="matMenu">
+    <button mat-menu-item (click)="fa()">
+      <mat-icon>format_textdirection_r_to_l</mat-icon>
+      <span>{{ 'TopMenu.Farsi' | translate }}</span>
+    </button>
+    <button mat-menu-item (click)="en()">
+      <mat-icon>format_textdirection_l_to_r</mat-icon>
+      <span>{{ 'TopMenu.English' | translate }}</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- SideNav -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="sideNavMode" opened [(opened)]="isSideBarOpened"
+               [ngStyle]="{'width': isLargeWeb || ! isMediumWeb ? '200px' : '64px'}">
+    <mat-action-list>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('dashboard')">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span matLine *ngIf="isLargeWeb || ! isMediumWeb">
+          {{ 'SideNav.Dashboard' | translate }}
+        </span>
+      </button>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('messages')">
+        <mat-icon matListIcon>mail_outline</mat-icon>
+        <span matLine *ngIf="isLargeWeb || ! isMediumWeb">
+          {{ 'SideNav.Messages' | translate }}
+        </span>
+      </button>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('tasks')">
+        <mat-icon matListIcon>playlist_add_check</mat-icon>
+        <span matLine *ngIf="isLargeWeb || ! isMediumWeb">
+          {{ 'SideNav.Tasks' | translate }}
+        </span>
+      </button>
+      <button mat-list-item class="list-item" (click)="sideBarClicked('administration')">
+        <mat-icon matListIcon>settings</mat-icon>
+        <span matLine *ngIf="isLargeWeb || ! isMediumWeb">
+          {{ 'SideNav.Administration' | translate }}
+        </span>
+      </button>
+    </mat-action-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

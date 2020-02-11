@@ -1,0 +1,41 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="background-color: #607d8b; height: 100%;">
+  <!--<div fxFlex.gt-sm="100px" fxFlex.lt-md="16px">
+
+  </div>-->
+  <div style="height: 4px; width: 400px">
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  </div>
+  <mat-card style="width: 400px">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ 'Login.BrandTitle' | translate }}</mat-card-title>
+      <mat-card-subtitle>{{ 'Login.BrandDescription' | translate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content style="padding-top: 16px;">
+      <br/><br/>
+      <mat-form-field>
+        <input matInput [formControl]="usernameFormControl" placeholder="{{ 'Login.UserName' | translate}}"
+               (keyup.enter)="login()">
+      </mat-form-field>
+      <br/><br/>
+      <mat-form-field>
+        <input type="password" matInput [formControl]="passwordFormControl"
+               placeholder="{{ 'Login.Password' | translate}}"
+               (keyup.enter)="login()">
+      </mat-form-field>
+      <br/>
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: center; padding-top: 32px">
+      <button mat-stroked-button (click)="login()" color="primary"
+              style="border-color: #607d8b; border-width: 2px; border-radius: 20px; height: 48px; width: 64%">
+        {{ 'Login.LoginButton' | translate }}
+      </button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button mat-flat-button (click)="fa()">{{ 'Login.Fa' | translate }}</button>
+      <button mat-flat-button (click)="en()">{{ 'Login.En' | translate }}</button>
+    </mat-card-actions>
+    <span style="color: red;" *ngIf="loginMessage != null && loginMessage.length > 0">{{loginMessage}}</span>
+  </mat-card>
+</div>

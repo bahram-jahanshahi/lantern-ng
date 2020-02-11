@@ -1,0 +1,25 @@
+{
+  "Login": {
+    "UserName": "Username",
+    "Password": "Password",
+    "BrandTitle": "Lantern",
+    "BrandDescription": "Analyze and design ferdose application",
+    "LoginButton": "Login",
+    "Fa": "فا",
+    "En": "En"
+  },
+  "TopMenu": {
+    "BrandTitle": "Lantern",
+    "Farsi": "فارسی",
+    "English": "English",
+    "Profile": "Profile",
+    "Logout": "Logout"
+  },
+  "SideNav": {
+    "Dashboard": "Dashboard",
+    "Messages": "Messages",
+    "Tasks": "Tasks",
+    "Administration": "Administration"
+  }
+}
+

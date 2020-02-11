@@ -1,6 +1,17 @@
 # LanternNg
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.  
+
+## Libraries
+### 1. Angular Material  
+In order to install [angular material](https://material.angular.io/guide/getting-started):  
+Run `ng add @angular/material`  
+### 2. Ngx Translate
+In otder to install [ngx-translate](https://github.com/ngx-translate/core)
+Run `npm install @ngx-translate/core --save` and then `npm install @ngx-translate/http-loader --save`
+### 3. Angular Flex Layout
+In order to install [angular-flex-layout](https://github.com/angular/flex-layout)  
+Run `npm i -s @angular/flex-layout`
 
 ## Development server
 
