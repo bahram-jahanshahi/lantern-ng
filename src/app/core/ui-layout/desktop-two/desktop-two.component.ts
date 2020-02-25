@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../services/responsive.service';
 import {LanguageService} from '../../services/language.service';
+import {SecurityService} from '../../services/security.service';
 
 @Component({
   selector: 'app-desktop-two',
@@ -16,7 +17,9 @@ export class DesktopTwoComponent implements OnInit {
   isSideBarMinimized = false;
   isRtl = false;
 
-  constructor(private responsiveService: ResponsiveService, private languageService: LanguageService) {
+  constructor(private responsiveService: ResponsiveService,
+              private languageService: LanguageService,
+              private securityService: SecurityService) {
     languageService.isRtl.subscribe(value => {
       this.isRtl = value;
     });
@@ -66,5 +69,20 @@ export class DesktopTwoComponent implements OnInit {
 
   toggleSideBar(isMinimized: boolean) {
     this.isSideBarMinimized = isMinimized;
+  }
+
+  directionChanged($event: string) {
+    if ($event === 'RTL') {
+      this.languageService.fa();
+    }
+    if ($event === 'LTR') {
+      this.languageService.en();
+    }
+  }
+
+  logout($event: boolean) {
+    if ($event === true) {
+      this.securityService.logout();
+    }
   }
 }

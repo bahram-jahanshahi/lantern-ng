@@ -14,4 +14,8 @@ export class SecurityService {
   login(username, password) {
     this.isLogin.next(true);
   }
+
+  logout() {
+    this.isLogin.next(false);
+  }
 }

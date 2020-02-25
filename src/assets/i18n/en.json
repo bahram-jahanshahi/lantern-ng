@@ -13,13 +13,15 @@
     "Farsi": "فارسی",
     "English": "English",
     "Profile": "Profile",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "Settings": "Settings"
   },
   "SideNav": {
     "Dashboard": "Dashboard",
     "Messages": "Messages",
     "Tasks": "Tasks",
-    "Administration": "Administration"
+    "Administration": "Administration",
+    "Entities": "Entities"
   }
 }
 

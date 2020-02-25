@@ -35,3 +35,11 @@ mat-toolbar {
   width: 48px;
   height: 48px;
 }
+
+.top-menu-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon-button {
+  color: #607d8b;
+}

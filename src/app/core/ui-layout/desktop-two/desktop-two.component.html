@@ -12,6 +12,12 @@
           {{ 'SideNav.Dashboard' | translate }}
         </span>
       </button>
+      <button mat-list-item class="list-item">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
+          {{ 'SideNav.Entities' | translate }}
+        </span>
+      </button>
       <button mat-list-item class="list-item" (click)="sideBarClicked('messages')">
         <mat-icon matListIcon>mail_outline</mat-icon>
         <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
@@ -49,4 +55,9 @@
 
   </mat-drawer-content>
 </mat-drawer-container>
-<app-top-menu-large (clicked)="toggleSideBar($event)" *ngIf="isMediumWeb"></app-top-menu-large>
+<app-top-menu-large *ngIf="isMediumWeb"
+                    (clickedEvent)="toggleSideBar($event)"
+                    (directionChangedEvent)="directionChanged($event)"
+                    (logoutEvent)="logout($event)">
+
+</app-top-menu-large>

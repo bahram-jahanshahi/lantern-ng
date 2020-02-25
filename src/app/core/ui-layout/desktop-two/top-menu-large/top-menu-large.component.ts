@@ -8,7 +8,9 @@ import {ResponsiveService} from '../../../services/responsive.service';
 })
 export class TopMenuLargeComponent implements OnInit {
 
-  @Output() clicked = new EventEmitter<boolean>();
+  @Output() clickedEvent = new EventEmitter<boolean>();
+  @Output() directionChangedEvent = new EventEmitter<string>();
+  @Output() logoutEvent = new EventEmitter<boolean>();
 
   isMediumWeb = true;
   isLargeWeb = true;
@@ -31,7 +33,19 @@ export class TopMenuLargeComponent implements OnInit {
   }
 
   toggleSideBar() {
-    this.isSideBarMinimized = ! this.isSideBarMinimized;
-    this.clicked.emit(this.isSideBarMinimized);
+    this.isSideBarMinimized = !this.isSideBarMinimized;
+    this.clickedEvent.emit(this.isSideBarMinimized);
+  }
+
+  rtl() {
+    this.directionChangedEvent.emit('RTL');
+  }
+
+  ltr() {
+    this.directionChangedEvent.emit('LTR');
+  }
+
+  logout() {
+    this.logoutEvent.emit(true);
   }
 }

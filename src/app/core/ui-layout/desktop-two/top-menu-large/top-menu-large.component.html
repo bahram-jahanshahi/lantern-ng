@@ -11,4 +11,33 @@
   <button mat-icon-button *ngIf="isLargeWeb" (click)="toggleSideBar()">
     <mat-icon>menu</mat-icon>
   </button>
+  <span class="top-menu-spacer"></span>
+  <!-- User -->
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>account_box</mat-icon>
+      <span>{{ 'TopMenu.Profile' | translate }}</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+      <span>{{ 'TopMenu.Logout' | translate }}</span>
+    </button>
+  </mat-menu>
+  <!-- Settings -->
+  <button mat-icon-button [matMenuTriggerFor]="settingMenu">
+    <mat-icon>settings</mat-icon>
+  </button>
+  <mat-menu #settingMenu="matMenu">
+    <button mat-menu-item (click)="rtl()">
+      <mat-icon>format_textdirection_r_to_l</mat-icon>
+      <span>RTL</span>
+    </button>
+    <button mat-menu-item (click)="ltr()">
+      <mat-icon>format_textdirection_l_to_r</mat-icon>
+      <span>LTR</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

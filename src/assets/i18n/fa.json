@@ -13,12 +13,14 @@
     "Farsi": "فارسی",
     "English": "English",
     "Profile": "پروفایل",
-    "Logout": "خروج"
+    "Logout": "خروج",
+    "Settings": "تنظیمات"
   },
   "SideNav": {
     "Dashboard": "داشبورد",
     "Messages": "پیام ها",
     "Tasks": "کارها",
-    "Administration": "مدیریت نرم افزار"
+    "Administration": "مدیریت نرم افزار",
+    "Entities": "موجودیت ها"
   }
 }
