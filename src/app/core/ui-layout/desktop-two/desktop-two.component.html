@@ -12,7 +12,7 @@
           {{ 'SideNav.Dashboard' | translate }}
         </span>
       </button>
-      <button mat-list-item class="list-item">
+      <button mat-list-item class="list-item" (click)="navigateTo('entities-list')">
         <mat-icon matListIcon>dashboard</mat-icon>
         <span matLine *ngIf="(isLargeWeb && ! isSideBarMinimized) || ! isMediumWeb">
           {{ 'SideNav.Entities' | translate }}
@@ -51,8 +51,8 @@
       </button>
       {{ 'TopMenu.BrandTitle' | translate }}
     </mat-toolbar>
-
-
+    <!-- Routed components go here -->
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
 <app-top-menu-large *ngIf="isMediumWeb"

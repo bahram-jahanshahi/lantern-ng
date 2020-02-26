@@ -8,14 +8,6 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {LoginFormComponent} from './core/login/login-form/login-form.component';
-/*import {
-  MatButtonModule,
-  MatCardModule,
-  MatDividerModule,
-  MatFormFieldModule, MatIconModule,
-  MatInputModule, MatListModule, MatMenuModule,
-  MatProgressBarModule, MatSidenavModule, MatToolbarModule
-} from '@angular/material';*/
 import {ReactiveFormsModule} from '@angular/forms';
 import {DesktopComponent} from './core/ui-layout/desktop/desktop.component';
 import {DesktopTwoComponent} from './core/ui-layout/desktop-two/desktop-two.component';
@@ -31,11 +23,17 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import { EntitiesListComponent } from './software-modules/data-model-management/software-features/entity-management/components/entities-list/entities-list.component';
+import {RouterModule, Routes} from '@angular/router';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
+const appRoutes: Routes = [
+  { path: 'entity/entities-list', component: EntitiesListComponent }
+];
 
 @NgModule({
   declarations: [
@@ -43,9 +41,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginFormComponent,
     DesktopComponent,
     DesktopTwoComponent,
-    TopMenuLargeComponent
+    TopMenuLargeComponent,
+    EntitiesListComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true} // <-- debugging purposes only
+    ),
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

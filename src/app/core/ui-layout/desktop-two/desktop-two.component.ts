@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../services/responsive.service';
 import {LanguageService} from '../../services/language.service';
 import {SecurityService} from '../../services/security.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-desktop-two',
@@ -19,7 +20,8 @@ export class DesktopTwoComponent implements OnInit {
 
   constructor(private responsiveService: ResponsiveService,
               private languageService: LanguageService,
-              private securityService: SecurityService) {
+              private securityService: SecurityService,
+              private router: Router) {
     languageService.isRtl.subscribe(value => {
       this.isRtl = value;
     });
@@ -83,6 +85,12 @@ export class DesktopTwoComponent implements OnInit {
   logout($event: boolean) {
     if ($event === true) {
       this.securityService.logout();
+    }
+  }
+
+  navigateTo(destination: string) {
+    if (destination === 'entities-list') {
+      this.router.navigate(['entity/entities-list']).then();
     }
   }
 }
